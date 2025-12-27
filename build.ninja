@@ -1,0 +1,13 @@
+cc = gcc
+cflags = -O3 -flto -ggdb
+
+rule compile
+    command = $cc -c $cflags $in -o $out
+rule link
+    command = $cc $cflags $in -o $out
+
+build build/which.o: compile src/which/which.c
+build build/utils.o: compile src/utils/utils.c
+build build/exit.o: compile src/exit/exit.c
+build build/echo.o: compile src/echo/echo.c
+build build/kosh: link src/main.c build/which.o build/utils.o build/echo.o build/exit.o
