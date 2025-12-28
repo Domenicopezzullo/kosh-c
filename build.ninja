@@ -1,5 +1,5 @@
 cc = gcc
-cflags = -O3 -flto -ggdb
+cflags = -O3 -flto -ggdb -Wall -Wextra
 
 rule compile
     command = $cc -c $cflags $in -o $out

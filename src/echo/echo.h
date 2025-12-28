@@ -1,3 +1,3 @@
 #include "../utils/utils.h"
 
-void echo(Strings* strings);
+void echo(Strings *strings);
