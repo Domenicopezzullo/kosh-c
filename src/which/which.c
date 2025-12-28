@@ -27,7 +27,7 @@ void which(char *program) {
       return;
     }
 
-    dirpath = strtok(NULL, ":");
+    dirpath = strtok(NULL, " ");
   }
   fprintf(stderr, "which: no program %s found in PATH\n", program);
   free(path);

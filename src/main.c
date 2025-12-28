@@ -7,7 +7,9 @@
 #include <string.h>
 
 int main() {
-  signal(SIGINT, SIG_IGN);
+  struct sigaction sa = {0};
+  sa.sa_handler = SIG_IGN;
+  sigaction(SIGINT, &sa, NULL);
   char *line = NULL;
   char *split_line;
   size_t size = 0;
@@ -45,7 +47,8 @@ int main() {
         which(next_token);
       } else
         fprintf(stderr, "which: Usage which <program>\n");
-    }
+    } else
+      fprintf(stderr, "Unrecognized command\n");
   }
   free(line);
 }
